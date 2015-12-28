@@ -23,12 +23,11 @@ interface Mutant {
                 <div><input [(ngModel)]="selectedMutant.name" placeholder="Name&hellip;"></div>
             </div>
         </div>
-
     `,
     styles:[`
       .mutants {list-style-type: none; margin-left: 1em; padding: 0; width: 15em;}
-      .mutants li { cursor: pointer; position: relative; left: 0; transition: all 0.2s ease; }
-      .mutants li:hover {color: #369; background-color: #EEE; left: .2em;}
+      .mutants li { cursor: pointer; }
+      .mutants li:hover {color: #369; background-color: #EEE; }
       .mutants .badge {
         font-size: small;
         color: white;
