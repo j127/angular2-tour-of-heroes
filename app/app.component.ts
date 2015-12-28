@@ -11,11 +11,13 @@ interface Mutant {
         <h1>{{title}}</h1>
         <h2>Mutants</h2>
         <ul class="mutants">
-            <li *ngFor="#mutant of mutants" (click)="onSelect(mutant)">
+            <li *ngFor="#mutant of mutants"
+                [class.selected]="mutant === selectedMutant"
+                (click)="onSelect(mutant)">
                 <span class="badge">{{mutant.id}}</span> {{mutant.name}}
             </li>
         </ul>
-        <div *ngIf="selectedHero">
+        <div *ngIf="selectedMutant">
             <h2>{{selectedMutant.name}}</h2>
             <div><label>ID: </label>{{selectedMutant.id}}</div>
             <div>
@@ -39,6 +41,7 @@ interface Mutant {
         top: -1px;
       }
       .selected { background-color: #EEE; color: #369; }
+      .selected .badge { background-color: #333; }
     `]
 })
 
@@ -55,14 +58,14 @@ export class AppComponent {
 
 var MUTANTS: Mutant[] = [
     {'id': 1, 'name': 'Aardvark Dog'},
-    {'id': 2, 'name': 'Storm Cat'},
-    {'id': 3, 'name': 'Coffee Monster'},
+    {'id': 2, 'name': 'Fire Lettuce'},
+    {'id': 3, 'name': 'Coffee Cannibal'},
     {'id': 4, 'name': 'Zorkinator'},
     {'id': 5, 'name': 'Lightbulb Lizard'},
     {'id': 6, 'name': 'Water Weird'},
     {'id': 7, 'name': 'Beerwok'},
     {'id': 8, 'name': 'The Lightning'},
-    {'id': 9, 'name': 'Jar'},
+    {'id': 9, 'name': 'Storm Kitten'},
     {'id': 10, 'name': 'Scorpion Worm'},
     {'id': 11, 'name': 'Transpiler Doe'},
     {'id': 12, 'name': 'Pegacat'}
