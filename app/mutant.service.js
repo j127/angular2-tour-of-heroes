@@ -28,7 +28,7 @@ System.register(['angular2/core', "./mock-mutants"], function(exports_1) {
                 // Simulate server latency
                 MutantService.prototype.getMutantsSlowly = function () {
                     return new Promise(function (resolve) {
-                        return setTimeout(function () { return resolve(mock_mutants_1.MUTANTS); }, 2000);
+                        return setTimeout(function () { return resolve(mock_mutants_1.MUTANTS); }, 3000);
                     });
                 };
                 MutantService = __decorate([

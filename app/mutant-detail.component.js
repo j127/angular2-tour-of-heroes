@@ -22,7 +22,7 @@ System.register(['angular2/core'], function(exports_1) {
                 MutantDetailComponent = __decorate([
                     core_1.Component({
                         selector: 'mutant-detail',
-                        template: "\n        <h2>Mutant Editor</h2>\n        <p>Click on a mutant to edit its name.</p>\n        <div *ngIf=\"mutant\">\n            <h2>{{mutant.name}}</h2>\n            <div><label>ID: </label>{{mutant.id}}</div>\n            <div>\n                <label>Name: </label>\n                <input [(ngModel)]=\"mutant.name\" placeholder=\"Name&hellip;\">\n            </div>\n        </div>\n    ",
+                        template: "\n        <h3>Mutant Editor</h3>\n        <p>Click on a mutant to edit its name.</p>\n        <div *ngIf=\"mutant\">\n            <h2>{{mutant.name}}</h2>\n            <div><label>ID: </label>{{mutant.id}}</div>\n            <div>\n                <label>Name: </label>\n                <input [(ngModel)]=\"mutant.name\" placeholder=\"Name&hellip;\">\n            </div>\n        </div>\n    ",
                         inputs: ['mutant']
                     }), 
                     __metadata('design:paramtypes', [])
