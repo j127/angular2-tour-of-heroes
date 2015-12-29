@@ -1,6 +1,8 @@
 import {Component} from 'angular2/core';
+import {OnInit} from 'angular2/core';
 import {Mutant} from './mutant';
 import {MutantDetailComponent} from './mutant-detail.component';
+import {MutantService} from './mutant.service';
 
 @Component({
     selector: 'my-app',
@@ -33,31 +35,24 @@ import {MutantDetailComponent} from './mutant-detail.component';
         .selected { background-color: #EEE; color: #369; }
         .selected .badge { background-color: #333; }
     `],
-    directives: [MutantDetailComponent]
+    directives: [MutantDetailComponent],
+    providers: [MutantService]
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
+    constructor(private _mutantService: MutantService) { }
     public title = 'Mutant Database';
-    public mutants = MUTANTS;
+    public mutants: Mutant[];
     public selectedMutant: Mutant;
 
     onSelect(mutant: Mutant) {
         console.log(mutant);
         this.selectedMutant = mutant;
     }
+    getMutants() {
+        this.mutants = this._mutantService.getMutants();
+    }
+    ngOnInit() {
+        this.getMutants();
+    }
 }
-
-var MUTANTS: Mutant[] = [
-    {'id': 1, 'name': 'Aardvark Dog'},
-    {'id': 2, 'name': 'Fire Lettuce'},
-    {'id': 3, 'name': 'Coffee Cannibal'},
-    {'id': 4, 'name': 'Zorkinator'},
-    {'id': 5, 'name': 'Lightbulb Lizard'},
-    {'id': 6, 'name': 'Water Weird'},
-    {'id': 7, 'name': 'Beerwok'},
-    {'id': 8, 'name': 'The Lightning'},
-    {'id': 9, 'name': 'Storm Kitten'},
-    {'id': 10, 'name': 'Scorpion Worm'},
-    {'id': 11, 'name': 'Transpiler Doe'},
-    {'id': 12, 'name': 'Pegacat'}
-];
