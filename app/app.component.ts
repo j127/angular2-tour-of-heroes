@@ -9,6 +9,7 @@ import {MutantService} from './mutant.service';
     template: `
         <h1>{{title}}</h1>
         <h2>Mutants</h2>
+        <img *ngIf="!mutants" src="/loader.gif" alt="Loading&hellip;">
         <ul class="mutants">
             <li *ngFor="#mutant of mutants"
                 [class.selected]="mutant === selectedMutant"
