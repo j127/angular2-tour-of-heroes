@@ -9,8 +9,12 @@ import {MutantService} from './mutant.service';
     template: `
         <div class="container">
             <div class="row">
+                <div class="col-md-12">
+                    <h1>{{title}}</h1>
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-4">
-                <h1>{{title}}</h1>
                     <h2>Mutants</h2>
                     <img *ngIf="!mutants" src="loader.gif" alt="Loading&hellip;">
                     <ul class="mutants">
