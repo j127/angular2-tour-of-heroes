@@ -11,7 +11,7 @@ export class MutantService {
     // Simulate server latency
     getMutantsSlowly() {
         return new Promise<Mutant[]>(resolve =>
-            setTimeout(()=>resolve(MUTANTS), 2000)
+            setTimeout(()=>resolve(MUTANTS), 3000)
         );
     }
 }
