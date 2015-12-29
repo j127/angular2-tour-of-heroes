@@ -1,9 +1,6 @@
 import {Component} from 'angular2/core';
-
-interface Mutant {
-    id: number;
-    name: string;
-}
+import {Mutant} from './mutant';
+import {MutantDetailComponent} from './mutant-detail.component';
 
 @Component({
     selector: 'my-app',
@@ -17,14 +14,7 @@ interface Mutant {
                 <span class="badge">{{mutant.id}}</span> {{mutant.name}}
             </li>
         </ul>
-        <div *ngIf="selectedMutant">
-            <h2>{{selectedMutant.name}}</h2>
-            <div><label>ID: </label>{{selectedMutant.id}}</div>
-            <div>
-                <label>Name: </label>
-                <div><input [(ngModel)]="selectedMutant.name" placeholder="Name&hellip;"></div>
-            </div>
-        </div>
+        <mutant-detail [mutant]="selectedMutant"></mutant-detail>
     `,
     styles:[`
         .mutants {list-style-type: none; margin-left: 1em; padding: 0; width: 15em;}
@@ -42,7 +32,8 @@ interface Mutant {
         }
         .selected { background-color: #EEE; color: #369; }
         .selected .badge { background-color: #333; }
-    `]
+    `],
+    directives: [MutantDetailComponent]
 })
 
 export class AppComponent {
