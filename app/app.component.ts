@@ -7,17 +7,25 @@ import {MutantService} from './mutant.service';
 @Component({
     selector: 'my-app',
     template: `
-        <h1>{{title}}</h1>
-        <h2>Mutants</h2>
-        <img *ngIf="!mutants" src="loader.gif" alt="Loading&hellip;">
-        <ul class="mutants">
-            <li *ngFor="#mutant of mutants"
-                [class.selected]="mutant === selectedMutant"
-                (click)="onSelect(mutant)">
-                <span class="badge">{{mutant.id}}</span> {{mutant.name}}
-            </li>
-        </ul>
-        <mutant-detail [mutant]="selectedMutant"></mutant-detail>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                <h1>{{title}}</h1>
+                    <h2>Mutants</h2>
+                    <img *ngIf="!mutants" src="loader.gif" alt="Loading&hellip;">
+                    <ul class="mutants">
+                        <li *ngFor="#mutant of mutants"
+                            [class.selected]="mutant === selectedMutant"
+                            (click)="onSelect(mutant)">
+                            <span class="badge">{{mutant.id}}</span> {{mutant.name}}
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-8">
+                    <mutant-detail [mutant]="selectedMutant"></mutant-detail>
+                </div>
+            </div>
+        </div>
     `,
     styles:[`
         .mutants {list-style-type: none; margin-left: 1em; padding: 0; width: 15em;}
