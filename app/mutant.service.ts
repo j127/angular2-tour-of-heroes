@@ -1,4 +1,3 @@
-import {HEROES} from './mock-mutants';
 import {Injectable} from 'angular2/core';
 import {MUTANTS} from "./mock-mutants";
 
@@ -6,6 +5,13 @@ import {MUTANTS} from "./mock-mutants";
 
 export class MutantService {
     getMutants() {
-        return MUTANTS;
+        return Promise.resolve(MUTANTS);
+    }
+
+    // Simulate server latency
+    getMutantsSlowly() {
+        return new Promise<Mutant[]>(resolve =>
+            setTimeout(()=>resolve(MUTANTS), 2000)
+        );
     }
 }

@@ -50,7 +50,7 @@ export class AppComponent implements OnInit {
         this.selectedMutant = mutant;
     }
     getMutants() {
-        this.mutants = this._mutantService.getMutants();
+        this._mutantService.getMutantsSlowly().then(mutants => this.mutants = mutants);
     }
     ngOnInit() {
         this.getMutants();
