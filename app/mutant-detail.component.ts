@@ -4,10 +4,10 @@ import {Mutant} from './mutant';
 @Component({
     selector: 'mutant-detail',
     template: `
-        <h3>Mutant Editor</h3>
+        <h2>Mutant Editor</h2>
         <p>Click on a mutant to edit its name.</p>
         <div *ngIf="mutant">
-            <h2>{{mutant.name}}</h2>
+            <h3>{{mutant.name}}</h3>
             <div><label>ID: </label>{{mutant.id}}</div>
             <div>
                 <label>Name: </label>
